@@ -7,6 +7,7 @@ from program3 import add2, mult2
 
 app = FastAPI()
 
+# mount static folder for static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
