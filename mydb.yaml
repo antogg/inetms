@@ -1,0 +1,13 @@
+name: mydb
+
+services:
+  app:
+    build: mydbapp
+    ports:
+      - "8888:8000"
+
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=abc123

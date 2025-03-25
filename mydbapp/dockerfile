@@ -1,0 +1,8 @@
+FROM python:3.13.2
+
+WORKDIR /app
+
+COPY app.py /app/app.py
+RUN ["pip", "install", "fastapi[standard]", "postgres", "psycopg2"]
+
+CMD [ "fastapi", "run", "app.py" ]
