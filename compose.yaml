@@ -1,4 +1,5 @@
 # yaml: Yet Another Markup Language
+name: mystack
 services:
   web1:
     image: myweb
