@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-# from program3 import add2, mult2
+from program3 import add2, mult2
 
 app = FastAPI()
 
@@ -19,10 +19,10 @@ async def read_item(request: Request, id: str):
         request=request, name="item.html", context={"id": id}
     )
 
-# @app.get("/calc/{x}")
-# async def calculate(request: Request, x: int):
-#     return templates.TemplateResponse(
-#         request=request, name="calc.html", context={
-#             "arg":x, "add2": add2(x), "mult2": mult2(x)
-#         }
-#     )
+@app.get("/calc/{x}")
+async def calculate(request: Request, x: int):
+    return templates.TemplateResponse(
+        request=request, name="calc.html", context={
+            "arg":x, "add2": add2(x), "mult2": mult2(x)
+        }
+    )
