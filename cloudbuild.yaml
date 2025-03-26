@@ -12,3 +12,5 @@ steps:
       - --trigger-http
       - --runtime=python312
       - --entry-point=hello
+options:
+  logging: NONE
