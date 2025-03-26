@@ -4,7 +4,7 @@ import functions_framework as ff
 
 @ff.http
 def hello(request: flask.Request) -> flask.typing.ResponseReturnValue:
-    return "Hello wonderful serverless world!"
+    return "Hello wonderful serverless world!\nThis finally works!"
 
 # gcloud functions deploy my-http-function   \
 # --gen2   \
