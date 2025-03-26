@@ -2,18 +2,20 @@ from fastapi import FastAPI
 from postgres import Postgres
 
 app = FastAPI()
-db = Postgres("postgresql://postgres:abc123@db/postgres")
+db = Postgres("postgres://postgres:abc123@db")
 
-db.run("CREATE TABLE foo(bar TEXT, baz INT)")
-db.run("INSERT INTO foo VALUES ('buz', 42)")
-db.run("INSERT INTO foo VALUES ('bit', 537)")
+try:
+    with db.get_cursor() as cursor:
+        cursor.run("CREATE TABLE foo(bar TEXT, baz INT)")
+        cursor.run("INSERT INTO foo VALUES ('buz', 42), ('bit', 537)")
+except:
+    ...
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Hello": "World!"}
 
 @app.get("/all")
 def select_star():
     rows = db.all("SELECT * FROM foo")
-    print(rows)
     return rows
