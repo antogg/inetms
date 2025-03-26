@@ -7,7 +7,7 @@ steps:
       - functions
       - deploy
       - my-http-function
-      - --region=asia-southeast1
+      - --region=us-west2
       - --source=serverless
       - --trigger-http
       - --runtime=python312
