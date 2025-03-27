@@ -2,9 +2,12 @@ import flask
 import flask.typing
 import functions_framework as ff
 
+from flask import render_template
+
 @ff.http
 def hello(request: flask.Request) -> flask.typing.ResponseReturnValue:
-    return "Hello wonderful serverless world!\nThis finally works!"
+    # return "Hello wonderful serverless world!\nThis finally works!"
+    return render_template('hello.html')
 
 # gcloud functions deploy my-http-function   \
 # --gen2   \
